@@ -11,7 +11,7 @@ export function useGetLogs() {
   }>({
     queryKey: ["get-all-logs"],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1600))
+      await new Promise((resolve) => setTimeout(resolve, 1000))
       return await axiosInstance.get("/activities/logs")
     },
   })
