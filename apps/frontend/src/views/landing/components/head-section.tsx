@@ -11,14 +11,15 @@ const HeadSection = () => {
               Monitoring Summary
             </h3>
 
-            <div>
-              <button>
-                <Plus size={20} className="text-color-text-primary" />
-                <p className="text-sm font-raleway text-color-text-primary">
-                  Create new view
-                </p>
-              </button>
-            </div>
+            <button
+              type="button"
+              className="flex items-center justify-end gap-1.5 bg-black/5 hover:bg-black/10 p-2 rounded-lg duration-300"
+            >
+              <Plus size={20} className="text-color-text-primary" />
+              <p className="text-sm font-raleway text-color-text-primary">
+                Create new view
+              </p>
+            </button>
           </div>
         </div>
       </MaxWidth>
