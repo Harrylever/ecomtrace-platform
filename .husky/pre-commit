@@ -1,0 +1,3 @@
+pnpm -r format
+pnpm -r lint
+pnpm -r build

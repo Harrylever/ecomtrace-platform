@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "pnpm --filter backend dev",
-    "frontend": "pnpm --filter frontend dev"
+    "frontend": "pnpm --filter frontend dev",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
   "packageManager": "pnpm@10.4.1",
   "dependencies": {
     "platform": "file:"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
