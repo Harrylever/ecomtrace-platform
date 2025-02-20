@@ -14,7 +14,7 @@ export const WebSocketProvider = ({
     let reconnectInterval: NodeJS.Timeout
 
     const connect = () => {
-      ws = new WebSocket("ws://localhost:3001")
+      ws = new WebSocket(import.meta.env.VITE_WS_BASE_URL || 'ws://localhost:3001')
 
       ws.onopen = () => {
         console.log("WebSocket connection established")
