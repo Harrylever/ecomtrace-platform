@@ -1,4 +1,4 @@
-import { ILog } from "../../../lib/types";
+import { ILog } from "../../../lib/types"
 
 export const sample_log_rows: ILog[] = [
   {
@@ -180,5 +180,5 @@ export const sample_log_rows: ILog[] = [
     message: "Replaying mobile app crash scenario",
     author: "Daniel Scott",
     dateTime: "2025-02-18T10:50:05Z",
-  }
-];
+  },
+]

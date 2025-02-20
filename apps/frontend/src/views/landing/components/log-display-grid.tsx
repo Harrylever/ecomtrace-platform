@@ -51,7 +51,7 @@ const LogDisplayGrid = () => {
           message: string
           data: ILog[]
         }
-       
+
         setRowData(realTime.data)
       }
     }
