@@ -1,14 +1,7 @@
 import { Request, Response } from 'express';
 import { v4 } from 'uuid';
 import LogModel from '../models/log.model';
-
-// type IForwardType = 'error-tracing' | 'speed-monitoring' | 'session-replay';
-
-// const ForwardTypeMap: Record<IForwardType, string> = {
-// 	'error-tracing': '',
-// 	'speed-monitoring': '',
-// 	'session-replay': '',
-// };
+import logger from '../config/logger';
 
 export async function receiveRepeaterController(req: Request, res: Response) {
 	const { forward_type } = req.query;
@@ -17,16 +10,20 @@ export async function receiveRepeaterController(req: Request, res: Response) {
 		return;
 	}
 
-	const { author, message, log_type, dateTime } = req.body;
+	const { username, message, dateTime } = req.body;
 
 	try {
-		await LogModel.create({
+		const logDetails = {
 			uid: v4(),
-			author,
 			message,
-			log_type,
 			dateTime,
-		});
+			author: username,
+			log_type: forward_type,
+		};
+
+		logger.info({ mesage: 'Log Data to add to db', log: logDetails });
+
+		await LogModel.create(logDetails);
 
 		res.status(201).json({
 			message: 'Log entry saved',
@@ -40,7 +37,7 @@ export async function receiveRepeaterController(req: Request, res: Response) {
 }
 
 export async function getLogsController(req: Request, res: Response) {
-	const allLogs = await LogModel.find();
+	const allLogs = await LogModel.find().limit(20);
 
 	res.status(200).json({
 		data: allLogs,
